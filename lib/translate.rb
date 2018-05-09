@@ -26,4 +26,8 @@ class Translate
     end.join
   end
 
+  def read_a_file(file_name)
+    File.read(file_name).chomp(" " + "\n")
+  end
+
 end

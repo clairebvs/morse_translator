@@ -59,6 +59,12 @@ class TranslateTest < Minitest::Test
     assert_equal "-......-.. .-.-.. ...-- ..........--....", translator.eng_to_morse("There are 3 ships")
   end
 
+  def test_can_read_a_file
+    translator = Translate.new
+
+    assert_equal "I am in a file", translator.read_a_file("input.txt")
+    
+  end
 
 =begin
 ### Iteration 2
