@@ -1,6 +1,5 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require 'pry'
 require './lib/translate'
 
 class TranslateTest < Minitest::Test
@@ -74,32 +73,19 @@ class TranslateTest < Minitest::Test
   def test_translate_letter_from_morse_to_eng
     translator = Translate.new
 
-    assert_equal "-...", translator.translate_letter_to_eng("b")
+    assert_equal "b",  translator.translate_letter_to_eng("-...")
   end
 
   def test_translate_different_letter_from_morse_to_eng
-    skip
     translator = Translate.new
 
-    assert_equal "-.-", translator.translate_letter_to_eng("k")
+    assert_equal "k", translator.translate_letter_to_eng("-.-")
   end
 
   def test_can_translate_sentence_morse_to_eng
-    skip
     translator = Translate.new
 
     assert_equal "hello world", translator.morse_to_eng(".... . .-.. .-.. ---  .-- --- .-. .-.. -..")
   end
-=begin
-### Iteration 3
-Translate Morse Code to English
-
-```ruby
-  $ translator = Translate.new
-  => #<Translate:0x007fa1ab98cac0>
-  $ translator.morse_to_eng(".... . .-.. .-.. ---  .-- --- .-. .-.. -..")
-  => "hello world"
-```
-=end
 
 end

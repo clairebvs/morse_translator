@@ -32,10 +32,9 @@ class Translate
   end
 
   def morse_to_eng(sentence)
-    sentence.chars.map do |morse|
-      if morse == "."
-         morse.translate_letter_to_eng
-      end
+    a = sentence.split(" ")
+    b = a.each_with_index do |morse, i|
+      morse[index += 1]
     end
   end
 
