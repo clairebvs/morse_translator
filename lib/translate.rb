@@ -10,10 +10,16 @@ class Translate
     @dictionary[letter]
   end
 
+  def convert_upper_to_downcase(letter)
+    @dictionary[letter.downcase]
+  end
+
   def eng_to_morse(sentence)
     sentence.chars.map do |letter|
       if letter == " "
         " "
+      elsif letter.upcase
+        convert_upper_to_downcase(letter)
       else
         translate_letter(letter)
       end

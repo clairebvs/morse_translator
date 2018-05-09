@@ -35,13 +35,47 @@ class TranslateTest < Minitest::Test
 
      assert_equal
   end
+  def test_can_translate_upper_letter_eng_to_morse
+    translator = Translate.new
+
+    assert_equal ".-", translator.convert_upper_to_downcase("A")
+  end
+
+  def test_can_translate_number_to_morse
+    translator = Translate.new
+
+    assert_equal "...--", translator.translate_letter("3")
+  end
+
+  def test_can_translate_sentence_uppercase
+    translator = Translate.new
+
+    assert_equal "......-...-..--- .-----.-..-..-..", translator.eng_to_morse("Hello World")
+  end
+
+  def test_can_translate_sentence_with_upp_and_num
+    translator = Translate.new
+
+    assert_equal "-......-.. .-.-.. ...-- ..........--....", translator.eng_to_morse("There are 3 ships")
+  end
+
+
 =begin
-It 1
+### Iteration 2
+Translate English to Morse Code
+* from a file
+
+```
+# in input.txt
+I am in a file
+```
+
+```ruby
   $ translator = Translate.new
   => #<Translate:0x007fa1ab98cac0>
-  $ translator.eng_to_morse("hello world")
-  => "......-...-..--- .-----.-..-..-.."
-  ```
+  $translator.from_file("input.txt")
+  => ".. .--- ..-. .- ..-....-..."
+```
 =end
 
 end
