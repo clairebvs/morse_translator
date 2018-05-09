@@ -1,5 +1,7 @@
 class Translator
 
+   attr_accessor :dictionary
+
   def initialize
     @dictionary = {"a" => ".-",
                     "b" => "-...",
