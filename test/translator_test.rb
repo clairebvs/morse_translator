@@ -63,24 +63,42 @@ class TranslateTest < Minitest::Test
     translator = Translate.new
 
     assert_equal "I am in a file", translator.read_a_file("input.txt")
-    
   end
 
-=begin
-### Iteration 2
-Translate English to Morse Code
-* from a file
+  def test_can_translate_from_file_eng_to_morse
+    translator = Translate.new
 
-```
-# in input.txt
-I am in a file
-```
+    assert_equal ".. .--- ..-. .- ..-....-...", translator.from_file("input.txt")
+  end
+
+  def test_translate_letter_from_morse_to_eng
+    translator = Translate.new
+
+    assert_equal "-...", translator.translate_letter_to_eng("b")
+  end
+
+  def test_translate_different_letter_from_morse_to_eng
+    skip
+    translator = Translate.new
+
+    assert_equal "-.-", translator.translate_letter_to_eng("k")
+  end
+
+  def test_can_translate_sentence_morse_to_eng
+    skip
+    translator = Translate.new
+
+    assert_equal "hello world", translator.morse_to_eng(".... . .-.. .-.. ---  .-- --- .-. .-.. -..")
+  end
+=begin
+### Iteration 3
+Translate Morse Code to English
 
 ```ruby
   $ translator = Translate.new
   => #<Translate:0x007fa1ab98cac0>
-  $translator.from_file("input.txt")
-  => ".. .--- ..-. .- ..-....-..."
+  $ translator.morse_to_eng(".... . .-.. .-.. ---  .-- --- .-. .-.. -..")
+  => "hello world"
 ```
 =end
 
